@@ -20,22 +20,25 @@ import common.ReturnCode;
  * @author Manh Vu
  */
 @Controller
-@RequestMapping(value = "/hello")
 public class HelloController {
-	private static final Logger log = LoggerFactory.getLogger(HelloController.class);
+	private static final Logger log = LoggerFactory
+			.getLogger(HelloController.class);
 
 	@Autowired
 	private HelloIfc hello;
 
-	@RequestMapping(params = "returnType", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/hello", params = "returnType", method = RequestMethod.GET, produces = {
+			MediaType.APPLICATION_JSON_VALUE,
+			MediaType.APPLICATION_ATOM_XML_VALUE })
 	@ResponseBody
-	public ResponseData hello() {
+	public ResponseData hello(String returnType) {
 		ResponseData res = null;
 		try {
 			res = hello.hello();
-		}catch (Exception e) {
+		} catch (Exception e) {
 			log.error(e.getMessage(), e);
-			res = new ResponseData(ReturnCode.EXCEPTION, e.getMessage(), Arrays.asList(e.getStackTrace()));
+			res = new ResponseData(ReturnCode.EXCEPTION, e.getMessage(),
+					Arrays.asList(e.getStackTrace()));
 		}
 
 		return res;

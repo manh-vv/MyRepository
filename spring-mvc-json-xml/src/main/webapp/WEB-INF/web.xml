@@ -11,7 +11,7 @@
 	</servlet>
 	
 	<servlet-mapping>
-		<servlet-name>mvc-dispatcher</servlet-name>
+		<servlet-name>spring-mvc-json-xml</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	
@@ -27,7 +27,8 @@
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/spring-mvc-configure.xml</param-value>
+		<!-- spring-mvc-json-xml-servlet -->
+		<param-value>/WEB-INF/spring-mvc-json-xml-servlet.xml</param-value>
 	</context-param>
 
 	<listener>
