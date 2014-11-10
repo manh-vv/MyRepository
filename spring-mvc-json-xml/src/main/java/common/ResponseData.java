@@ -4,9 +4,15 @@ import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import com.sun.xml.txw2.annotation.XmlElement;
+
 /**
  * @author Manh Vu
  */
+@XmlRootElement
 public class ResponseData implements Serializable {
 	/** serialVersionUID */
 	private static final long serialVersionUID = -746611034363691461L;
@@ -25,16 +31,19 @@ public class ResponseData implements Serializable {
 		this.data = data;
 	}
 
+	@XmlAttribute
 	public int getCode() {
 		return code;
 	}
 
+	@XmlAttribute
 	public String getMessage() {
 		return message;
 	}
 
+	@XmlElement
 	public List<?> getData() {
-		if(data == null) {
+		if (data == null) {
 			data = Collections.emptyList();
 		}
 

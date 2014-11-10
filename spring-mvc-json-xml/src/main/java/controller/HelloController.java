@@ -28,8 +28,7 @@ public class HelloController {
 	private HelloIfc hello;
 
 	@RequestMapping(value = "/hello", params = "returnType", method = RequestMethod.GET, produces = {
-			MediaType.APPLICATION_JSON_VALUE,
-			MediaType.APPLICATION_ATOM_XML_VALUE })
+			MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
 	@ResponseBody
 	public ResponseData hello(String returnType) {
 		ResponseData res = null;
